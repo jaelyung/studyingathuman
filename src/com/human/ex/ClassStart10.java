@@ -60,6 +60,7 @@ public class ClassStart10 {
 		arr[3]=new Product("노트", 10);
 		
 		//사용자 입력을 받아 해당 품목 내용을 화면에 출력하자.
+		System.out.println("---------------");
 		String input="연필";
 		
 		for(Product p:arr) {
@@ -69,14 +70,22 @@ public class ClassStart10 {
 				}
 			}
 		}
-		//재고가 20이하인 제품을 출력하는 프로그램
-		for(Product p:arr) {
-			if(p!=null) {
-				if(p.count<=20) {
-					p.display();
-				}
+	
+		//재고가 101개 이하인 제품을 출력하는 프로그램
+		System.out.println("---------------");
+		int number=101;
+		for(int i=0;i<Product.totalCount;i++) {
+			if(arr[i].count<number){
+				arr[i].display();
 			}
 		}
+//		for(Product p:arr) {
+//		if(p!=null) {
+//			if(p.count<=101) {
+//				p.display();
+//			}
+//		}
+//	}
 	}
 
 }
