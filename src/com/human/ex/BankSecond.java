@@ -4,41 +4,41 @@ public class BankSecond {
 	public static Scanner sc=new Scanner(System.in);
 	public int arrIndex=0;
 	public int numOfMember=0;
-	public static BankClassSecond [] arrBankClass=new BankClassSecond[100];//100¸íÀÇ È¸¿øÀ» ÀúÀåÇÒ ¼ö ÀÖ´Â °ø°£
+	public static BankClassSecond [] arrBankClass=new BankClassSecond[100];//100ëª…ì˜ íšŒì›ì„ ì €ì¥í•  ìˆ˜ ìˆëŠ” ê³µê°„
  
 	public BankSecond() {}
-	//1.È¸¿øµî·Ï
+	//1.íšŒì›ë“±ë¡
  	public void registMember(BankClassSecond b) {
- 		arrBankClass[arrIndex++]=b;//BankClassÀÇ °´Ã¼¹è¿­¿¡ Ãß°¡
+ 		arrBankClass[arrIndex++]=b;//BankClassì˜ ê°ì²´ë°°ì—´ì— ì¶”ê°€
  	}
  	public void registMember() {
- 		System.out.println("»ç¿ëÇÒ ¾ÆÀÌµğ ÀÔ·Â>>");//¾ÆÀÌµğ Áßº¹°Ë»ç ³ªÁß¿¡ º¯°æ
+ 		System.out.println("ì‚¬ìš©í•  ì•„ì´ë”” ì…ë ¥>>");//ì•„ì´ë”” ì¤‘ë³µê²€ì‚¬ ë‚˜ì¤‘ì— ë³€ê²½
  		String id=sc.nextLine();
- 		System.out.println("ºñ¹Ğ¹øÈ£ µî·Ï>>");
+ 		System.out.println("ë¹„ë°€ë²ˆí˜¸ ë“±ë¡>>");
  		String password=sc.nextLine();
- 		System.out.println("ÃÊ±â ÀÔ±İÇÒ ±İ¾×>>");
+ 		System.out.println("ì´ˆê¸° ì…ê¸ˆí•  ê¸ˆì•¡>>");
  		int money=Integer.parseInt(sc.nextLine());
  		for(int i=0;i<arrBankClass.length;i++) {
  			if(arrBankClass[i]==null) {
  				arrBankClass[arrIndex++]=new BankClassSecond(id, password, money);
- 				System.out.println("°èÁÂ°¡ »ı¼ºµÇ¾ú½À´Ï´Ù.");
+ 				System.out.println("ê³„ì¢Œê°€ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
  				break;
  			}
  			
  		}
  	} 
-	 //2.ÀºÇàÀÌ¿ë
-	 //2-1.·Î±×ÀÎ
-	 //2-2.¸Ş´º¼±ÅÃ
+	 //2.ì€í–‰ì´ìš©
+	 //2-1.ë¡œê·¸ì¸
+	 //2-2.ë©”ë‰´ì„ íƒ
  	public void menuOfBank() {
- 		System.out.println("¾ÆÀÌµğ ÀÔ·Â>>");
+ 		System.out.println("ì•„ì´ë”” ì…ë ¥>>");
 	 		String id=sc.nextLine();
-	 		System.out.println("ºñ¹Ğ¹øÈ£ ÀÔ·Â>>");
+	 		System.out.println("ë¹„ë°€ë²ˆí˜¸ ì…ë ¥>>");
 	 		String password=sc.nextLine();
 	 		searchMember(id, password);
  		int input=0;
- 		while(input!=4) {//0ÀÌ ¾Æ´Ò¶§ µ¿ÀÛ
- 			System.out.println("1:ÀÔ±İ, 2:Ãâ±İ, 3:Á¶È¸, 4:Á¾·á");
+ 		while(input!=4) {//0ì´ ì•„ë‹ë•Œ ë™ì‘
+ 			System.out.println("1:ì…ê¸ˆ, 2:ì¶œê¸ˆ, 3:ì¡°íšŒ, 4:ì¢…ë£Œ");
  			input=Integer.parseInt(sc.nextLine());
  			switch(input) {
  			case 1:
@@ -56,36 +56,8 @@ public class BankSecond {
  			}
  		}  
  	}
- //2-3.ÀÔ±İ
-// public void save() {
-//  
-//  BankClass b=searchMember(id, password);
-//  if(b==null) {
-//   menuOfBank();
-//  }else {
-//   b.account = b.account+deposit;
-//   System.out.printf("%d¿øÀ» ÀÔ±İÇÏ¼Ì½À´Ï´Ù.\n", deposit);
-//  }
-//  b.display();
-// }
- //2-4.Ãâ±İ
-// public void withdraw() {
-//  System.out.println("Ãâ±İÇÒ ±İ¾×À» ÀÔ·Â>>");
-////  int withdraw=Integer.parseInt(sc.nextLine());
-//  BankClass b=searchMember(id, password);
-//  if(b==null) {
-//   menuOfBank();
-//  }else {
-//   b.account = b.account-withdraw;
-//   System.out.printf("%d¿øÀ» Ãâ±İÇÏ¼Ì½À´Ï´Ù.\n", withdraw);
-//  }
-//  b.display();
-// }
- //2-5.Á¶È¸
-// public void account() {
-//  searchMember(id, password).display();
-// }
- //3.È¸¿ø°Ë»ö
+
+ //3.íšŒì›ê²€ìƒ‰
  	public BankClassSecond searchMember(String id,String password) {
  		for(int i=0;i<arrBankClass.length;i++) {
  			if(arrBankClass[i]==null) {
@@ -100,9 +72,9 @@ public class BankSecond {
  		return null;
  	}
  	public BankClassSecond searchMember() {
- 		System.out.println("¾ÆÀÌµğ ÀÔ·Â>>");
+ 		System.out.println("ì•„ì´ë”” ì…ë ¥>>");
  		String id=sc.nextLine();
- 		System.out.println("ºñ¹Ğ¹øÈ£ ÀÔ·Â>>");
+ 		System.out.println("ë¹„ë°€ë²ˆí˜¸ ì…ë ¥>>");
  		String password=sc.nextLine();
  		BankClassSecond returnValue=null;
  		searchMember(id, password);
@@ -116,11 +88,11 @@ public class BankSecond {
  			arrBankClass[i].displayMember();
  		}
  	}
- //4.¸Ş´º
+ //4.ë©”ë‰´
  	public void startMenu() {
  		int input=0;
  		while(input!=-1) {
- 			System.out.println("1:È¸¿øµî·Ï, 2:ÀºÇàÀÌ¿ë, 3:È¸¿øÁ¶È¸, 4:¸ğµç È¸¿ø Á¶È¸ (-1:Á¾·á)");
+ 			System.out.println("1:íšŒì›ë“±ë¡, 2:ì€í–‰ì´ìš©, 3:íšŒì›ì¡°íšŒ, 4:ëª¨ë“  íšŒì› ì¡°íšŒ (-1:ì¢…ë£Œ)");
  			input=Integer.parseInt(sc.nextLine());
  			switch(input) {
  			case 1:
@@ -146,9 +118,9 @@ public class BankSecond {
  	public static void main(String[] args) {
  		BankSecond b1=new BankSecond();
  		b1.startMenu();
-  //¿¡·¯1-> È¸¿ø2¸íÀÌ»ó µî·Ï ÈÄ¿¡ ÀºÇàÀÌ¿ë¹öÆ°À» ´©¸£¸é µî·ÏµÇÁö ¾ÊÀº ¾ÆÀÌµğÀÔ´Ï´Ù °¡ Ãâ·ÂµÊ.
-  //         ¸ğµçÈ¸¿øÁ¶È¸¿¡´Â ÀüÃ¼ È¸¿ø¼ö, ¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£ Á¶È¸ µÊ.
-  //¿¡·¯2-> È¸¿ø1¸íÀÌ»ó µî·Ï½Ã ÀºÇà ÀÔ±İ Ãâ±İ Á¶È¸ ´Ù µÊ. 2¹øÂ° µî·ÏºÎÅÍ ¾ÈµÊ.
+  //ì—ëŸ¬1-> íšŒì›2ëª…ì´ìƒ ë“±ë¡ í›„ì— ì€í–‰ì´ìš©ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ë“±ë¡ë˜ì§€ ì•Šì€ ì•„ì´ë””ì…ë‹ˆë‹¤ ê°€ ì¶œë ¥ë¨.
+  //         ëª¨ë“ íšŒì›ì¡°íšŒì—ëŠ” ì „ì²´ íšŒì›ìˆ˜, ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸ ì¡°íšŒ ë¨.
+  //ì—ëŸ¬2-> íšŒì›1ëª…ì´ìƒ ë“±ë¡ì‹œ ì€í–‰ ì…ê¸ˆ ì¶œê¸ˆ ì¡°íšŒ ë‹¤ ë¨. 2ë²ˆì§¸ ë“±ë¡ë¶€í„° ì•ˆë¨.
 
  }
 
