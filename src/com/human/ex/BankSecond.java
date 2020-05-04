@@ -70,7 +70,7 @@ public class BankSecond {
  			}
  		}
  		return null;
- 	}
+ 	} 
  	public BankClassSecond searchMember() {
  		System.out.println("아이디 입력>>");
  		String id=sc.nextLine();
